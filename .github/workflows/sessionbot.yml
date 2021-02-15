@@ -11,7 +11,7 @@ env:
   # GH_TOKEN >> Github Personal Access Token << In Repository Secrets 
 
 jobs:
-  urlbot:
+  sessionbot:
     runs-on: ubuntu-20.04
 
     steps:
@@ -43,4 +43,4 @@ jobs:
         continue-on-error: true
         run: |
           cd pyrosessionbot
-          python3 bot.py
+          python3 -m psm
