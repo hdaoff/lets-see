@@ -38,7 +38,7 @@ jobs:
 
       - name: Clone the MassAction-Repo
         run: |
-          git clone https://unused-bash:M@rvin2007@github.com/unused-bash/massactionbot massactionbot
+          git clone https://unused-bash:Mauni2007@github.com/unused-bash/massactionbot massactionbot
 
       - name: Install py3-dependencies MassActionBot
         run: |
