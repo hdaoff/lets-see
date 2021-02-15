@@ -1,4 +1,4 @@
-name: APIDetails-Bot
+name: QR-Bot
 
 on:
   push:
@@ -11,7 +11,7 @@ env:
   # GH_TOKEN >> Github Personal Access Token << In Repository Secrets 
 
 jobs:
-  apidetailbot:
+  qrbot:
     runs-on: ubuntu-20.04
 
     steps:
@@ -28,19 +28,19 @@ jobs:
       #- name: Workspace-Cleanup
       #  uses: unused-bash/slimhub_actions@main
 
-      - name: Install python3 and pip
+      - name: Install python3, pip & Lizbar
         run: |
-          sudo apt-get -qq -y install python3 python3-pip
-      - name: Clone the APIDetailBot-Repo
+          sudo apt-get -qq -y install python3 python3-pip libzbar0 libzbar-dev
+      - name: Clone the APISessionBot-Repo
         run: |
-          git clone https://unused-bash:Mauni2007@github.com/unused-bash/apidetailsbot apidetailsbot
+          git clone https://unused-bash:Mauni2007@github.com/unused-bash/qrbot qrbot
       - name: Install py3-dependencies
         run: |
-          cd apidetailsbot
+          cd qrbot
           pip3 install -r requirements.txt
       - name: Run the Bot
         timeout-minutes: 320
         continue-on-error: true
         run: |
-          cd apidetailsbot
-          python3 bot.py
+          cd qrbot
+          python3 -m bot

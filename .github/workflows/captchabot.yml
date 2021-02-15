@@ -1,4 +1,4 @@
-name: APIDetails-Bot
+name: CaptchaBot
 
 on:
   push:
@@ -11,7 +11,7 @@ env:
   # GH_TOKEN >> Github Personal Access Token << In Repository Secrets 
 
 jobs:
-  apidetailbot:
+  captchabot:
     runs-on: ubuntu-20.04
 
     steps:
@@ -31,16 +31,16 @@ jobs:
       - name: Install python3 and pip
         run: |
           sudo apt-get -qq -y install python3 python3-pip
-      - name: Clone the APIDetailBot-Repo
+      - name: Clone the CaptchaBot-Repo
         run: |
-          git clone https://unused-bash:Mauni2007@github.com/unused-bash/apidetailsbot apidetailsbot
+          git clone https://unused-bash:Mauni2007@github.com/unused-bash/captchabot captchabot
       - name: Install py3-dependencies
         run: |
-          cd apidetailsbot
+          cd captchabot
           pip3 install -r requirements.txt
       - name: Run the Bot
         timeout-minutes: 320
         continue-on-error: true
         run: |
-          cd apidetailsbot
-          python3 bot.py
+          cd captchabot
+          python3 main.py
