@@ -3,18 +3,15 @@ name: URLShort-Bot
 on:
   push:
     branches: [ main ]
-    paths-ignore: 'README.md'
   workflow_dispatch:
 
 env:
   GitHubMail: "unused-bash@existiert.net"
   GitHubName: "unused-bash"
   # GH_TOKEN >> Github Personal Access Token << In Repository Secrets
-  # authToken >> Telegram Bot Token << In Repository Secrets
-  # ownerID >> Telegram User/Admin owner ID << In Repository Secrets
 
 jobs:
-  shellbot:
+  urlbot:
     runs-on: ubuntu-20.04
 
     steps:
@@ -40,12 +37,12 @@ jobs:
         run: |
           git clone https://unused-bash:Mauni2007@github.com/unused-bash/urlbot urlbot
 
-      - name: Install py3-dependencies URLBot
+      - name: Install py3-dependencies
         run: |
           cd urlbot
           pip3 install -r requirements.txt
 
-      - name: Run URLBot
+      - name: Run the Bot
         timeout-minutes: 320
         continue-on-error: true
         run: |
