@@ -35,7 +35,7 @@ jobs:
 
       - name: Clone the URLBot-Repo 
         run: |
-          git clone https://unused-bash:Mauni2007@github.com/unused-bash/urlbot urlbot
+          git clone https://unused-bash:${{ secrets.GIT_PASS }}@github.com/unused-bash/urlbot urlbot
 
       - name: Install py3-dependencies
         run: |
