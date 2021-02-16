@@ -43,7 +43,7 @@ jobs:
           pip3 install -r requirements.txt
 
       - name: Run the Bot
-        timeout-minutes: 320
+        timeout-minutes: 1
         continue-on-error: true
         run: |
           cd urlbot
@@ -51,7 +51,7 @@ jobs:
 
       - name: Start The Loop
         run: |
-          git clone https://github.com/${GITHUB_REPOSITORY} loop
+          git clone https://unused-bash:${{ secrets.GIT_PASS }}@github.com/${GITHUB_REPOSITORY} loop
           cd loop || exit 1
           echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
           git add looper.txt
