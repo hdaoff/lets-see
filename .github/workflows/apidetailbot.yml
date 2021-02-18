@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  GitHubMail: ${{ secrets.SuperSecret }}
+  GitHubMail: ${{ secrets.EMAIL_GIT }}
   GitHubName: "hdaoff"
   # GH_TOKEN >> Github Personal Access Token << In Repository Secrets 
 
