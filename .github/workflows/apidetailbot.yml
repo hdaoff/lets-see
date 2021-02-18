@@ -24,7 +24,7 @@ jobs:
           git config --global user.name ${GitHubName}
           git config --global color.ui true
           git config --global credential.helper store
-          echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
+          echo "https://${GitHubName}:${{ secrets.GITHUB_TOKEN  }}@github.com" > ~/.git-credentials
       #- name: Workspace-Cleanup
       #  uses: unused-bash/slimhub_actions@main
 
