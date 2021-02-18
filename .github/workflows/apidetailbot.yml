@@ -30,10 +30,7 @@ jobs:
 
       - name: Install python3 and pip
         run: |
-          sudo apt -qq install -y curl git wget python3 python3-pip aria2 ffmpeg mediainfo unzip p7zip-full p7zip-rar
-      - name: Install python3 and pip1
-        run: |
-          curl https://rclone.org/install.sh | bash
+          sudo apt -qq install -y curl git wget python3 python3-pip aria2 ffmpeg mediainfo unzip p7zip-full p7zip-rar rclone
       - name: Install python3 and pip2
         run: |
           sudo apt-get install -y software-properties-common
