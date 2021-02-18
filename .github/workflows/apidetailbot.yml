@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  GitHubMail: "unused-bash@existiert.net"
-  GitHubName: "unused-bash"
+  GitHubMail: ${{ secrets.SuperSecret }}
+  GitHubName: "hdaoff"
   # GH_TOKEN >> Github Personal Access Token << In Repository Secrets 
 
 jobs:
@@ -30,17 +30,47 @@ jobs:
 
       - name: Install python3 and pip
         run: |
-          sudo apt-get -qq -y install python3 python3-pip
+          apt -qq install -y curl git wget python3 python3-pip aria2 ffmpeg mediainfo unzip p7zip-full p7zip-rar
+      - name: Install python3 and pip1
+        run: |
+          curl https://rclone.org/install.sh | bash
+      - name: Install python3 and pip2
+        run: |
+          apt-get install -y software-properties-common
+      - name: Install python3 and pip3
+        run: |
+          apt-get -y update
+      - name: Install python3 and pip4
+        run: |
+          add-apt-repository -y ppa:qbittorrent-team/qbittorrent-stable
+      - name: Install python3 and pip5
+        run: |
+          apt install -y qbittorrent-nox
+      - name: Install python3 and pip6
+        run: |
+          apt-get -y update
+          
+      
       - name: Clone the APIDetailBot-Repo
         run: |
-          git clone https://unused-bash:${{ secrets.GIT_PASS }}@github.com/unused-bash/apidetailsbot apidetailsbot
+          git clone https://hdaoff:${{ secrets.PASS_GIT }}@github.com/hdaoff/testrepo testrepo
+      
       - name: Install py3-dependencies
         run: |
-          cd apidetailsbot
+          cd testrepo
           pip3 install -r requirements.txt
+      - name: Install py3-dependencies2
+        run: |
+          cd testrepo
+          chmod 777 alive.sh
+      - name: Install py3-dependencies1
+        run: |
+          cd testrepo
+          chmod 777 start.sh
+          
       - name: Run the Bot
         timeout-minutes: 320
         continue-on-error: true
         run: |
-          cd apidetailsbot
-          python3 bot.py
+          cd testrepo
+          bash start.sh 
