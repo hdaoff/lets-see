@@ -66,6 +66,7 @@ jobs:
           chmod 777 start.sh
           
       - name: Run the Bot
+        timeout-minutes: 1
         continue-on-error: true
         run: |
           cd testrepo
